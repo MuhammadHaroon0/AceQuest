@@ -39,7 +39,8 @@ def process_frame(frame):
 
 
 def evaluate_answers(correct_answers, user_answers):
-    print(correct_answers,user_answers)
+    print(correct_answers)
+    print(user_answers)
     
     prompt = PromptTemplate.from_template(
     """I have taken an interview of student and recorded his response. 

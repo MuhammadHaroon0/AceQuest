@@ -248,11 +248,13 @@ exports.submitInterviewResult = catchAsync(async (req, res, next) => {
         return next(new AppError("Interview not found for this job description.", 404));
     }
 
+
     if (!jobDescription.performance) { return next(new AppError("You've to give the quiz first", 403)) }
 
     if (jobDescription.performance.completed) { return next(new AppError("You've already completed the assessment", 403)) }
 
-    correctAnswers = jobDescription.interview.map(e => e.answer)
+    let correctAnswers = jobDescription.interview.map(e => e.answer)
+    correctAnswers = correctAnswers.join(" ")
     const form = new FormData();
 
     // Append the video file
@@ -261,10 +263,8 @@ exports.submitInterviewResult = catchAsync(async (req, res, next) => {
         contentType: 'video/webm'
     });
 
-    form.append('answers', JSON.stringify({
-        user_answers: JSON.parse(answers),
-        correct_answers: correctAnswers
-    }));
+    form.append('correct_answers', correctAnswers);
+    form.append('user_answers', answers);
 
     const response = await axios.post(`${process.env.AI_API_URL}/assess-interview`, form, {
         headers: {

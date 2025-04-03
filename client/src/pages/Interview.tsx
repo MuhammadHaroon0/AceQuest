@@ -30,9 +30,15 @@ const Interview: React.FC = () => {
 
     useEffect(() => {
         const timer = setInterval(() => {
-            setTimeLeft((prevTime) => (prevTime > 0 ? prevTime - 1 : 0));
+            setTimeLeft((prevTime) => {
+                if (prevTime <= 0) {
+                    clearInterval(timer);
+                    handleSubmit(transcript); // Auto-submit when time runs out
+                    return 0;
+                }
+                return prevTime - 1;
+            });
         }, 1000);
-
         return () => clearInterval(timer);
     }, []);
 
@@ -171,7 +177,7 @@ const Interview: React.FC = () => {
         try {
             const response = await axiosInstance.get(apiRoutes.getJob(token))
             setInterview(response.data.data.interview)
-            setTimeLeft(response.data.data.interview.length * 1000)
+            setTimeLeft(response.data.data.interview.length * 60)
 
         } catch (error) {
             enqueueSnackbar("An error occurred fetching the assessments")

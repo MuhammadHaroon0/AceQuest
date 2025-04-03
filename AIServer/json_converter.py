@@ -30,7 +30,7 @@ json_parser_for_interview = JsonOutputParser(pydantic_object=InterviewResponse)
 json_quiz_template = """
   Text: {text}
 
-  Convert the above text into a valid JSON object, strictly following this format:
+  Convert the above quiz into a valid JSON, strictly following this schema:
   {{
     "questions": [
       {{
