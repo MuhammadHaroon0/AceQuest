@@ -1,0 +1,119 @@
+{
+    "quiz": {
+      "title": "C++ Basics Quiz",
+      "description": "Test your knowledge of C++ programming basics!",
+      "questions": [
+        {
+          "id": 1,
+          "question": "What is the correct syntax to output 'Hello, World!' in C++?",
+          "options": [
+            "cout << 'Hello, World!';",
+            "System.out.println('Hello, World!');",
+            "print('Hello, World!');",
+            "Console.WriteLine('Hello, World!');"
+          ],
+          "correctOption": 0
+        },
+        {
+          "id": 2,
+          "question": "Which of the following is the correct file extension for C++ programs?",
+          "options": [
+            ".cp",
+            ".c++",
+            ".cpp",
+            ".cxx"
+          ],
+          "correctOption": 2
+        },
+        {
+          "id": 3,
+          "question": "What is the purpose of the 'using namespace std;' statement?",
+          "options": [
+            "It allows the use of standard library functions without prefixing them with 'std::'.",
+            "It defines a new namespace called 'std'.",
+            "It includes the Standard Template Library (STL).",
+            "It imports C++ headers from the standard library."
+          ],
+          "correctOption": 0
+        },
+        {
+          "id": 4,
+          "question": "Which of these is NOT a fundamental data type in C++?",
+          "options": [
+            "int",
+            "float",
+            "double",
+            "string"
+          ],
+          "correctOption": 3
+        },
+        {
+          "id": 5,
+          "question": "How do you declare a constant variable in C++?",
+          "options": [
+            "constant int x = 10;",
+            "const int x = 10;",
+            "define x = 10;",
+            "#const x = 10;"
+          ],
+          "correctOption": 1
+        },
+        {
+          "id": 6,
+          "question": "What does the 'new' keyword do in C++?",
+          "options": [
+            "Creates a new variable.",
+            "Allocates memory on the heap.",
+            "Deletes a variable.",
+            "Initializes a variable."
+          ],
+          "correctOption": 1
+        },
+        {
+          "id": 7,
+          "question": "Which of the following is used to define a class in C++?",
+          "options": [
+            "struct",
+            "class",
+            "object",
+            "namespace"
+          ],
+          "correctOption": 1
+        },
+        {
+          "id": 8,
+          "question": "What is a correct way to declare a pointer in C++?",
+          "options": [
+            "int *ptr;",
+            "pointer int ptr;",
+            "int ptr*;",
+            "ptr int*;"
+          ],
+          "correctOption": 0
+        },
+        {
+          "id": 9,
+          "question": "What is the default access level for members of a class in C++?",
+          "options": [
+            "public",
+            "private",
+            "protected",
+            "internal"
+          ],
+          "correctOption": 1
+        },
+        {
+          "id": 10,
+          "question": "What happens if a pointer is deleted twice in C++?",
+          "options": [
+            "It causes a memory leak.",
+            "It results in undefined behavior.",
+            "The program runs normally.",
+            "It raises a compile-time error."
+          ],
+          "correctOption": 1
+        }
+      ]
+    }
+  }
+  

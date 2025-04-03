@@ -1,0 +1,25 @@
+We are seeking a highly skilled AI/ML Engineer or Data Scientist with expertise in Python, SQL, and C/C++, along with experience in deep learning, computer vision, and data analysis. The ideal candidate should be proficient in frameworks like PyTorch, Keras, OpenCV, and Django, with strong problem-solving abilities and a passion for AI-driven innovation.
+
+Key Responsibilities:
+
+    Develop and optimize machine learning models using PyTorch and Keras
+    Work on computer vision and image processing projects with OpenCV
+    Design and implement data pipelines and preprocessing techniques
+    Perform exploratory data analysis (EDA) and statistical modeling
+    Build and deploy AI-powered applications using Django and React JS
+    Collaborate with teams to develop AI-driven solutions for real-world problems
+    Utilize SQL, Pandas, and NumPy for data manipulation and insights
+    Deploy models efficiently using Git, GitHub, and cloud services
+
+Skills & Requirements:
+
+    A Bachelor’s / master’s degree in IT, SE and CS.
+    Have experience of 1+ years working in cloud technologies.
+    Strong foundation in machine learning, deep learning, and AI algorithms.
+    Proficiency in Python, SQL, and JavaScript.
+    Hands-on experience with TensorFlow, PyTorch, Keras, and OpenCV.
+    Experience with data mining, statistical analysis, and feature engineering.
+    Knowledge of embedded systems and digital logic (preferred but not required).
+    Strong problem-solving, adaptability, and teamwork skills.
+
+This role is ideal for individuals passionate about AI, ML, and data science, looking to drive innovation through intelligent systems and data-driven insights.

@@ -1,0 +1,53 @@
+We are seeking a talented Associate Front-End Developer to join our dynamic team. You will collaborate with designers, back-end developers, and product managers to create seamless, user-friendly, responsive web applications. Your primary responsibility will be translating UI/UX designs into clean, maintainable, and efficient code while ensuring optimal performance across various devices and browsers.
+
+Key Responsibilities:
+
+● Develop and maintain user-facing features using modern JavaScript frameworks (e.g., React, Vue, Angular).
+
+● Convert UI/UX designs into pixel-perfect, responsive web pages.
+
+● Optimize applications for maximum speed and scalability.
+
+● Debug and resolve front-end issues across different browsers and devices.
+
+● Collaborate with cross-functional teams to integrate front-end components with APIs and back-end services.
+
+● Write clean, reusable, and efficient code, adhering to coding standards and best practices.
+
+● Conduct code reviews and ensure code quality.
+
+● Stay up-to-date with the latest front-end technologies and trends.
+
+Qualifications:
+
+● Bachelor’s degree in computer science, IT, or a related field (or equivalent practical experience).
+
+● Proficiency in HTML, CSS, JavaScript, and modern frameworks like React, Angular, or Vue.js.
+
+● Familiarity with state management libraries (e.g., Redux, Vuex) and CSS preprocessors (e.g., SASS, LESS).
+
+● Basic understanding of RESTful APIs and integrating front-end applications with back-end services.
+
+● Knowledge of cross-browser compatibility, accessibility standards (WCAG), and responsive design principles.
+
+● Familiarity with build tools like Webpack, Vite, or Parcel and version control systems (e.g., Git).
+
+● A portfolio or GitHub showcasing your work is a plus.
+
+Preferred Skills:
+
+● Experience with testing frameworks (e.g., Jest, Cypress).
+
+● Understanding of performance optimization techniques.
+
+● Familiarity with front-end deployment workflows.
+
+What We Offer:
+
+● Competitive salary and benefits package.
+
+● Learning opportunities and mentorship.
+
+● A collaborative and innovative work environment.
+
+
