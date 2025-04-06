@@ -9,9 +9,7 @@ const mongoSanitize = require("express-mongo-sanitize");
 const xssClean = require("xss-clean");
 const hpp = require("hpp");
 const cookieParser = require('cookie-parser')
-const passport = require("passport");
-require('./config/passport.js')
-const session = require('express-session')
+
 ///////////////////////////Files
 const AppError = require("./utils/AppError");
 // app.use(express.static(__dirname + "public"));
@@ -23,16 +21,9 @@ app.use(cors({
   origin: process.env.FRONTEND_URL, // Replace with your frontend's URL
   credentials: true, // This allows cookies to be sent in CORS requests
 }));
-app.use(session({
-  secret: process.env.SESSION_SECRET,
-  resave: false,
-  saveUninitialized: true,
-  cookie: { secure: false }
-}))
+
 app.use(cookieParser())
-// Passport Middleware
-app.use(passport.initialize())
-app.use(passport.session())
+
 
 app.use(helmet());
 app.use(morgan("tiny"));
@@ -72,7 +63,6 @@ const companyRouter = require("./routes/companyRoutes.js");
 const subscriptionRouter = require("./routes/subscriptionRoutes.js");
 const performanceRouter = require("./routes/performanceRoutes.js");
 const jobDescriptionRouter = require("./routes/jobDescriptionRoutes.js");
-const googleAuthRouter = require('./config/googleauth.js')
 
 
 
@@ -83,7 +73,6 @@ app.use("/api/v1/subscriptions", subscriptionRouter);
 app.use("/api/v1/performances", performanceRouter);
 app.use("/api/v1/jobDescriptions", jobDescriptionRouter);
 
-app.use("/", googleAuthRouter);
 
 app.get('/', async (req, res, next) => {
   res.send("hello")

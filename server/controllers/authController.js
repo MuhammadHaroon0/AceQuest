@@ -95,7 +95,15 @@ exports.login = catchAsync(async (req, res, next) => {
 });
 
 exports.logout = catchAsync(async (req, res, next) => {
-  res.clearCookie('jwt', { httpOnly: true, sameSite: 'strict', secure: process.env.NODE_ENV === 'production' });
+  const cookieOptions = {
+    httpOnly: true,
+    sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'strict', // <-- Dynamic sameSite
+    secure: process.env.NODE_ENV === "production",
+    path: '/', // Explicitly set path
+
+  };
+
+  res.clearCookie("jwt", cookieOptions);
   return res.status(200).json({ status: "success", message: "Logout successful" })
 })
 

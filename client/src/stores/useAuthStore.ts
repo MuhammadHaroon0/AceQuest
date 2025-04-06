@@ -55,7 +55,7 @@ const useAuthStore = create<AuthState>()(
             },
 
             logout: async () => {
-                await axiosInstance.get(apiRoutes.logout);
+                await axiosInstance.post(apiRoutes.logout);
                 set({ user: null }); // This matches `User | null`
                 localStorage.removeItem('auth-storage'); // Optional: clear storage
 

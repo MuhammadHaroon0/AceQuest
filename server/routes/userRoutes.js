@@ -33,7 +33,7 @@ const { uploadToCloudinary, deleteUserImage } = require("../utils/cloudinary");
 
 router.post("/signup", signUp);
 router.post("/login", login);
-router.get("/logout", protect, logout);
+router.post("/logout", protect, logout);
 router.post("/forgotPassword", forgotPassword);
 router.patch("/resetPassword/:resetToken", resetPassword);
 router.patch("/updatePassword", protect, updatePassword);

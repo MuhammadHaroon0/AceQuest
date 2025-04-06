@@ -1,0 +1,36 @@
+services:
+  client:
+    build: ./client
+    ports: ["5173:80"]
+    depends_on: [server,  ai-server]
+    environment:
+      - VITE_API_BASE_URL=${VITE_API_BASE_URL}
+  server:
+    build: ./server
+    ports: ["5000:5000"]
+    environment:
+      - DB_URL=${DB_URL}
+      - BACKEND_PORT=${BACKEND_PORT}
+      - BACKEND_URL=${BACKEND_URL}
+      - FRONTEND_URL=${FRONTEND_URL}
+      - JWT_SECRET=${JWT_SECRET}
+      - JWT_EXPIRY=${JWT_EXPIRY}
+      - JWT_EXPIRY_FOR_TEST=${JWT_EXPIRY_FOR_TEST}
+      - JWT_COOKIE_EXPIRY=${JWT_COOKIE_EXPIRY}
+      - MAIL_SERVICE=${MAIL_SERVICE}
+      - MAIL_HOST=${MAIL_HOST}
+      - MAIL_PORT=${MAIL_PORT}
+      - MAIL_USER=${MAIL_USER}
+      - MAIL_PASS=${MAIL_PASS}
+      - MAIL_SENDER=${MAIL_SENDER}
+      - SESSION_SECRET=${SESSION_SECRET}
+      - CLOUDINARY_API_SECRET=${CLOUDINARY_API_SECRET}
+      - CLOUDINARY_API_KEY=${CLOUDINARY_API_KEY}
+      - AI_API_URL=${AI_API_URL}
+
+  ai-server:
+    build: ./ai-server
+    ports: ["8000:8000"]
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - PINECONE_API_KEY=${PINECONE_API_KEY}
