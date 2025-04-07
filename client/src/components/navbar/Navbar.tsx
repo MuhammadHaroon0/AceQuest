@@ -53,7 +53,7 @@ const Navbar: React.FC = () => {
                     <div className="flex ">
                         <div className="flex-shrink-0 flex items-center ">
                             <Link to="/">
-                                <img src={logo} className=" h-12 w-56 object-contain" alt="Logo" />
+                                <img src={logo} className=" h-16 w-48 object-contain" alt="Logo" />
                             </Link>
                         </div>
                     </div>

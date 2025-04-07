@@ -21,7 +21,6 @@ class InterviewQuestion(BaseModel):
 class InterviewResponse(BaseModel):
     questions: List[InterviewQuestion]
 
-# ✅ JSON Parsers
 json_parser_for_quiz = JsonOutputParser(pydantic_object=QuizResponse)
 json_parser_for_interview = JsonOutputParser(pydantic_object=InterviewResponse)
 

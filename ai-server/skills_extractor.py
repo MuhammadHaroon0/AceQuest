@@ -16,9 +16,9 @@ def extract_context(job_description,num):
     )
     
     context = retriever.invoke("abstraction encapsulation overloading overriding polymorphism\
-    inheritance object static class oop recursion threading process scheduling deadlock semaphores \
-    paging indexing views stored procedure stack heap data structures algorithms array binary search tree graph vector arraylist linked \
-    list hashmap time complexity hashtable sort dfs bfs"+skills)
+    inheritance object static recursion threading process scheduling deadlock semaphores \
+    paging indexing views stored procedure stack heap binary search tree graph vector arraylist linked \
+    list hashmap time complexity hashtable sort dfs bfs "+skills)
     
     # Combine both contexts
     return context

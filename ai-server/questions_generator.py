@@ -10,14 +10,26 @@ str_parser = StrOutputParser()
 questions_template = """
   You are given a context containing technical Q&A. Generate multiple-choice questions 
   for technical candidate assessments based on given context. Each question should have 3 incorrect answers and 1 correct answer. Do not generate a question if it should'nt be asked in technical assessment of candidate. Be concise and straight to the point.
+  Strictly follow this format below:
+  - MCQ:
+    QUESTION: ...
+    OPTIONS:
+    A. ...
+    B. ...
+    C. ...
+    D. ...
+    ANSWER: B
 
+    Here is the context:
   Context: {context}
 """
 
 # Template for generating interview questions
 interview_template = """
   Generate technical interview questions with precise answers based on a given context. Do not generate a question if it shouldn't be asked in technical assessment of candidate.
-
+  Strictly follow this format below:
+  QUESTION: ...
+  ANSWER: ...
   Context: {context}
 """
 
