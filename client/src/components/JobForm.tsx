@@ -47,14 +47,12 @@ const JobForm: React.FC = () => {
       }
 
       const response = await axiosInstance.post(apiRoutes.createJobDescription, data)
-      console.log(response);
 
       enqueueSnackbar(response.data.data.message)
       setTimeout(() => {
         navigate('/assessments')
       }, 1500);
     } catch (error: any) {
-      console.log('Error:', error);
       if (axios.isAxiosError(error)) {
         enqueueSnackbar(error.response?.data?.message || "An error occurred");
       } else {

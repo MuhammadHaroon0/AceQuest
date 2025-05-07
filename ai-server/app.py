@@ -36,36 +36,40 @@ def generate_assessment(request: JobDescriptionRequest):
     }
     return response
 
-
 @app.post("/assess-interview")
 def assess_interview(video_file: UploadFile = File(...), user_answers: str = Form(...), correct_answers: str = Form(...)):
-    """Process interview with resilient video handling"""
     
-    # Initialize default scores
     confidence_score = 50
     interview_score = 50
     temp_video_path = None
+    cap = None  
     
     try:
-        # 1. Safely save video (even if incomplete)
         with tempfile.NamedTemporaryFile(delete=False, suffix=".webm") as temp_video:
             shutil.copyfileobj(video_file.file, temp_video)
             temp_video_path = temp_video.name
 
-        # 2. Attempt video processing with fallbacks
         frames = []
-        cap = cv2.VideoCapture(temp_video_path)
-        frame_skip = 10
-        frame_count = 0
-        
-        while True:
-            ret, frame = cap.read()
-            if not ret:
-                break  
-                
-            if frame_count % frame_skip == 0:
-                frames.append(frame)
-            frame_count += 1
+        try:
+            cap = cv2.VideoCapture(temp_video_path)
+            if not cap.isOpened():
+                raise ValueError("Failed to open video file")
+
+            frame_skip = 10
+            frame_count = 0
+            
+            while True:
+                ret, frame = cap.read()
+                if not ret:
+                    break  
+                    
+                if frame_count % frame_skip == 0:
+                    frames.append(frame)
+                frame_count += 1
+
+        finally:
+            if cap is not None:
+                cap.release()  
 
         if frames:
             with concurrent.futures.ThreadPoolExecutor() as executor:
@@ -87,14 +91,18 @@ def assess_interview(video_file: UploadFile = File(...), user_answers: str = For
         interview_score = evaluate_answers(correct_answers, user_answers)
     except Exception as e:
         logging.error(f"Answer scoring failed: {str(e)}", exc_info=True)
-        interview_score = 50  # Fallback to avg score
+        interview_score = 50  # Fallback
 
-    # 5. Cleanup with safety
+    # Cleanup with retry for Windows
     if temp_video_path and os.path.exists(temp_video_path):
         try:
             os.remove(temp_video_path)
-        except OSError as e:
-            logging.warning(f"Temp file cleanup failed: {str(e)}")
+        except PermissionError:
+            # Add retry logic or delay
+            time.sleep(0.1)
+            os.remove(temp_video_path)
+        except Exception as e:
+            logging.warning(f"Temp cleanup failed: {str(e)}")
 
     return {
         "confidence_score": confidence_score,

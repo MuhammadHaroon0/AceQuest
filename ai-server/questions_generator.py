@@ -68,7 +68,7 @@ def generate_interview_questions(context,num_questions):
    
     generated_questions = []
     for i in range(len(context)-num_questions, len(context),5):
-        questions = questions_chain.invoke({'context': context[i:i+5]})
+        questions = interview_chain.invoke({'context': context[i:i+5]})
         generated_questions.append(questions)
     
     return generated_questions
