@@ -39,7 +39,7 @@ def generate_assessment(request: JobDescriptionRequest):
 @app.post("/assess-interview")
 def assess_interview(video_file: UploadFile = File(...), user_answers: str = Form(...), correct_answers: str = Form(...)):
     
-    confidence_score = 50
+    confidence_score = 70
     interview_score = 50
     temp_video_path = None
     cap = None  
@@ -71,6 +71,7 @@ def assess_interview(video_file: UploadFile = File(...), user_answers: str = For
             if cap is not None:
                 cap.release()  
 
+        print(frames)
         if frames:
             with concurrent.futures.ThreadPoolExecutor() as executor:
                 results = executor.map(process_frame, frames)
@@ -80,7 +81,7 @@ def assess_interview(video_file: UploadFile = File(...), user_answers: str = For
             for res in results:
                 pred += sum(res)
                 total_frames += len(res)
-
+            print(total_frames)
             if total_frames > 0:
                 confidence_score = pred // total_frames
 

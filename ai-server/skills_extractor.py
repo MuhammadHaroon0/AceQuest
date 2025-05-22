@@ -15,10 +15,9 @@ def extract_context(job_description,num):
         f"Extract as many technical skills as you can without adding any explanations. Job description: {job_description}"
     )
     
-    context = retriever.invoke("overloading overriding polymorphism\
-    inheritance object static recursion threading process scheduling deadlock semaphores \
-    paging indexing database views stack heap tree graph arraylist linked \
-    list hashmap time complexity hashtable sort dfs bfs "+skills)
+    context = retriever.invoke(skills+"overloading overriding polymorphism\
+    inheritance object threading scheduling deadlock semaphores \
+    paging indexing database views tree linked list hashmap time-complexity hashtable sorting dfs bfs")
     
     # Combine both contexts
     return context

@@ -41,7 +41,7 @@ exports.createJobDescription = catchAsync(async (req, res, next) => {
 })
 exports.getMyJobDescriptions = catchAsync(async (req, res, next) => {
 
-    const doc = await jobDescriptionModel.find({ _id: { $in: req.user.jobDescriptions } }, { description: 0, quiz: 0, interview: 0 });
+    const doc = await jobDescriptionModel.find({ _id: { $in: req.user.jobDescriptions } }, { description: 0, quiz: 0, interview: 0 }).sort("-updatedAt");
     return res.status(200).json(new Response("success", doc))
 })
 

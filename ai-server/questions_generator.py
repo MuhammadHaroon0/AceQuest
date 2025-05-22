@@ -25,13 +25,24 @@ questions_template = """
 """
 
 # Template for generating interview questions
-interview_template = """
-  Generate technical interview questions with precise answers based on a given context. Do not generate a question if it shouldn't be asked in technical assessment of candidate.
-  Strictly follow this format below:
-  QUESTION: ...
-  ANSWER: ...
-  Context: {context}
+interview_template = """You are an AI assistant that generates technical interview questions based on the provided context. 
+Your goal is to create clear, relevant, and technically sound questions suitable for assessing a candidate's knowledge in a professional interview setting.
+
+Instructions:
+- Only generate questions that are directly supported by the context.
+- Avoid vague or opinion-based questions.
+- Focus on key technical concepts, terminology, workflows, or problem-solving aspects.
+- Each question must have a precise, fact-based answer.
+- Do NOT generate a question if there is no valid answer in the context.
+
+Use the format below:
+QUESTION: <Write the technical question here>
+ANSWER: <Write the accurate answer here>
+
+Context:
+{context}
 """
+
 
 questions_prompt = PromptTemplate.from_template(questions_template)
 interview_prompt = PromptTemplate.from_template(interview_template)

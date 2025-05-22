@@ -17,7 +17,7 @@ network_loaded.compile(loss = 'categorical_crossentropy', optimizer='Adam', metr
 
 face_detector = cv2.CascadeClassifier('./config/haarcascade_frontalface_default.xml')
 emotions = [0, 20, 10, 99, 50, 40, 60]  # Emotion mapping
-
+#["angry","disgust","fear","happy","neutral","sad","surprise"]
 def process_frame(frame):
     """Detect faces and predict emotions for a single frame"""
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
